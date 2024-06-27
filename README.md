@@ -1,6 +1,8 @@
-# Getting Started with Create React App
+# Traffic Light - Project
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+This project has an educational purpose for anyone learning React with Typescript.
+
+Create a traffic light to understand the componetization and reuse of these components
 
 ## Available Scripts
 
