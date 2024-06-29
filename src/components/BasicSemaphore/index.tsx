@@ -9,14 +9,19 @@ const BasicTraficcLightApp = () => {
 
     //* set one second
     const second = 1000
+
+    //* set time to change lights
     const yellowToRed = 1 * second
     const redToGreen = 3 * second
     const greenToYellow = 6 * second
 
     useEffect(() => {
+        //* clear setTimeout if so
         clearTimeout(timer.current)
+
         let nextLight: { light: LightsColors; time: number }
 
+        //* save the next light and time to show up
         switch (lightOn) {
             case "red":
                 nextLight = { light: "green", time: redToGreen }
@@ -28,13 +33,16 @@ const BasicTraficcLightApp = () => {
                 nextLight = { light: "red", time: yellowToRed }
         }
 
+        //* schedule the next light change
         timer.current = setTimeout(
             () => setLightOn(nextLight.light),
             nextLight.time
         )
+
+        //* clear on unmount component
         return () => clearTimeout(timer.current)
     }, [lightOn])
-    return <BasicTrafficLight size={50} lightsOn={[lightOn]} />
+    return <BasicTrafficLight size={100} lightsOn={[lightOn]} />
 }
 
 export default BasicTraficcLightApp

@@ -7,12 +7,19 @@ interface BasicTrafficLightProp {
     lightsOn: LightsColors[]
 }
 const BasicTrafficLight = ({ size, lightsOn }: BasicTrafficLightProp) => {
+    //* turn the red light on if red is in th ligthsOn
     const redOn = lightsOn.includes("red")
+
+    //* turn the yellow light on if yellow is in th ligthsOn
     const yellowOn = lightsOn.includes("yellow")
+
+    //* turn the green light on if green is in th ligthsOn
     const greenOn = lightsOn.includes("green")
 
+    //* define the semaphore dimensions
     const width = size * 1.4
     const height = width * 3
+
     return (
         <div
             className="basic-trafficlight-container"
