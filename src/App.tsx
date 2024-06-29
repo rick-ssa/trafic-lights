@@ -1,20 +1,10 @@
-import { useState } from "react"
 import "./App.css"
-import Light from "./components/Lights/BasicLight"
+import BasicTraficcLightApp from "./components/BasicSemaphore"
 
 function App() {
-    const [on, setOn] = useState(false)
     return (
         <div className="App">
-            <Light on={on} color="#f00" size={75} />
-            <p />
-            <Light on={on} color="#ff0" size={75} />
-            <p />
-            <Light on={on} color="#0f0" size={75} />
-            <p />
-            <button onClick={() => setOn(!on)}>
-                {on ? "desligar" : "ligar"}
-            </button>
+            <BasicTraficcLightApp />
         </div>
     )
 }
