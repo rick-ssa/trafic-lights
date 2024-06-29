@@ -11,7 +11,7 @@ const BasicTraficcLightApp = () => {
     const second = 1000
 
     //* set time to change lights
-    const yellowToRed = 1 * second
+    const yellowToRed = 2 * second
     const redToGreen = 3 * second
     const greenToYellow = 6 * second
 
