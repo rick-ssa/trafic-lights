@@ -1,0 +1,18 @@
+.squarelight-container {
+    position: relative;
+}
+
+.squarelight {
+    position: absolute;
+    border-radius: 8px;
+    left: 0;
+    top: 0;
+}
+
+.squarelight-off {
+    background-color: rgba(0, 0, 0, 0.5);
+}
+
+.squarelight-shine {
+    filter: blur(8px);
+}

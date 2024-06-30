@@ -1,0 +1,8 @@
+.square-trafficlight-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+    border-radius: 10px;
+    background-color: #333;
+}

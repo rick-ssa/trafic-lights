@@ -1,9 +1,9 @@
 import { useEffect, useRef, useState } from "react"
-import BasicTrafficLight, {
+import SquareTrafficLight, {
     LightsColors,
-} from "./TrafficLight/BasicTrafficLight"
+} from "./TrafficLight/SquareTrafficLight"
 
-const BasicTraficcLightApp = () => {
+const SquareTraficcLightApp = () => {
     const [lightOn, setLightOn] = useState<LightsColors>("green")
     const timer = useRef<NodeJS.Timeout>()
 
@@ -42,7 +42,7 @@ const BasicTraficcLightApp = () => {
         //* clear on unmount component
         return () => clearTimeout(timer.current)
     }, [lightOn])
-    return <BasicTrafficLight size={80} lightsOn={[lightOn]} />
+    return <SquareTrafficLight size={80} lightsOn={[lightOn]} />
 }
 
-export default BasicTraficcLightApp
+export default SquareTraficcLightApp
