@@ -19,4 +19,5 @@ jobs:
               run: |
                   npm install
                   npm run build
-                  gh-pages -d build
+                  npm install gh-pages --save-dev
+                  npm run deploy
