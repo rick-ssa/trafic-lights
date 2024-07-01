@@ -25,23 +25,16 @@ jobs:
               run: |
                   npm install
                   npm run build
-            - name: Upload output file
-              uses: actions/upload-artifact@v4
-              with:
-                  name: output-file
-                  path: .
     github-pages:
         needs: [dev]
         runs-on: ubuntu-latest
         steps:
             - uses: actions/checkout@v4
             - uses: actions/setup-node@v4
-            - name: Download a single artifact
-              uses: actions/download-artifact@v4
-              with:
-                  name: output-file
             - name: Deploy github-pages
               run: |
+                  npm install
+                  npm run build
                   git remote set-url origin https://git:${GITHUB_TOKEN}@github.com/${GITHUB_REPOSITORY}.git
                   npx gh-pages -d build -u "github-actions-bot <support+actions@github.com>"
               env:
