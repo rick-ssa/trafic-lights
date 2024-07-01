@@ -39,7 +39,7 @@ jobs:
             - name: Download a single artifact
               uses: actions/download-artifact@v4
               with:
-                  name: output-log-file
+                  name: output-file
             - name: Deploy github-pages
               run: |
                   git remote set-url origin https://git:${GITHUB_TOKEN}@github.com/${GITHUB_REPOSITORY}.git
