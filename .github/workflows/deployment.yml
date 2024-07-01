@@ -23,7 +23,7 @@ jobs:
         steps:
             - uses: actions/checkout@v4
             - uses: actions/setup-node@v4
-            - name: Deploy
+            - name: Deploy development
               run: |
                   npm install
                   npm run build
@@ -43,3 +43,16 @@ jobs:
                   npx gh-pages -d build -u "github-actions-bot <support+actions@github.com>"
               env:
                   GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+    prod:
+        needs: [dev]
+        name: deploy to production
+        runs-on: ubuntu-latest
+        environment:
+            name: production
+        steps:
+            - uses: actions/checkout@v4
+            - uses: actions/setup-node@v4
+            - name: Deploy production
+              run: |
+                  npm install
+                  npm run build
