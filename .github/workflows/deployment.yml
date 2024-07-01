@@ -29,7 +29,7 @@ jobs:
               uses: actions/upload-artifact@v4
               with:
                   name: output-file
-                  path: ./build
+                  path: .
     github-pages:
         needs: [dev]
         runs-on: ubuntu-latest
