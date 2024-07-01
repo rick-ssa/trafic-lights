@@ -11,7 +11,9 @@ permissions:
     contents: read
     pages: write
     id-token: write
-
+concurrency:
+    group: "pages"
+    cancel-in-progress: false
 jobs:
     dev:
         name: deploy to dev
@@ -33,7 +35,6 @@ jobs:
             - uses: actions/setup-node@v4
             - name: Deploy github-pages
               run: |
-                  echo -----------------${GITHUB_TOKEN}-----------------
                   npm install
                   npm run build
                   git remote set-url origin https://git:${GITHUB_TOKEN}@github.com/${GITHUB_REPOSITORY}.git
