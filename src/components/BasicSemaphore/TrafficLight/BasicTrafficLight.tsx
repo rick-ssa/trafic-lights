@@ -1,5 +1,5 @@
 import BasicLight from "../BasicLight"
-import "./styles.css"
+import PanelBasic from "../PanelBasic/PanelBasic"
 
 export type LightsColors = "red" | "green" | "yellow"
 interface BasicTrafficLightProp {
@@ -16,22 +16,14 @@ const BasicTrafficLight = ({ size, lightsOn }: BasicTrafficLightProp) => {
     //* turn the green light on if green is in th ligthsOn
     const greenOn = lightsOn.includes("green")
 
-    //* define the semaphore dimensions
-    const width = size * 1.4
-    const height = width * 3
-
     return (
-        <div
-            className="basic-trafficlight-container"
-            style={{
-                width: width + "px",
-                height: height + "px",
-            }}
-        >
-            <BasicLight color="#f00" on={redOn} size={size} />
-            <BasicLight color="#ff0" on={yellowOn} size={size} />
-            <BasicLight color="#0f0" on={greenOn} size={size} />
-        </div>
+        <PanelBasic size={size}>
+            <>
+                <BasicLight color="#f00" on={redOn} size={size} />
+                <BasicLight color="#ff0" on={yellowOn} size={size} />
+                <BasicLight color="#0f0" on={greenOn} size={size} />
+            </>
+        </PanelBasic>
     )
 }
 

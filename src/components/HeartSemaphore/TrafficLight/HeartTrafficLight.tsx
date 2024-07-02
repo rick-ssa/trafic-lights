@@ -1,12 +1,12 @@
 import PanelBasic from "../../BasicSemaphore/PanelBasic/PanelBasic"
-import SquareLight from "../SquareLight"
+import HeartLight from "../HeartLight"
 
 export type LightsColors = "red" | "green" | "yellow"
-interface SquareTrafficLightProp {
+interface HeartTrafficLightProp {
     size: number
     lightsOn: LightsColors[]
 }
-const SquareTrafficLight = ({ size, lightsOn }: SquareTrafficLightProp) => {
+const HeartTrafficLight = ({ size, lightsOn }: HeartTrafficLightProp) => {
     //* turn the red light on if red is in th ligthsOn
     const redOn = lightsOn.includes("red")
 
@@ -16,15 +16,17 @@ const SquareTrafficLight = ({ size, lightsOn }: SquareTrafficLightProp) => {
     //* turn the green light on if green is in th ligthsOn
     const greenOn = lightsOn.includes("green")
 
+    //* make the heart light fit on panel
+    const heartSize = size * 0.6
     return (
         <PanelBasic size={size}>
             <>
-                <SquareLight color="#f00" on={redOn} size={size} />
-                <SquareLight color="#ff0" on={yellowOn} size={size} />
-                <SquareLight color="#0f0" on={greenOn} size={size} />
+                <HeartLight color="#f00" on={redOn} size={heartSize} />
+                <HeartLight color="#ff0" on={yellowOn} size={heartSize} />
+                <HeartLight color="#0f0" on={greenOn} size={heartSize} />
             </>
         </PanelBasic>
     )
 }
 
-export default SquareTrafficLight
+export default HeartTrafficLight

@@ -1,6 +1,7 @@
 import React from "react"
 import BasicTraficcLightApp from "../components/BasicSemaphore"
 import SquareTraficcLightApp from "../components/SquareSemaphore"
+import HeartTraficcLightApp from "../components/HeartSemaphore"
 
 export interface ITrafficLightDataObject {
     githubName: string
@@ -9,6 +10,11 @@ export interface ITrafficLightDataObject {
 }
 
 const TrafficLightDataObject: ITrafficLightDataObject[] = [
+    {
+        githubName: "rick-ssa",
+        trafficLightName: "Heart Traffic Light",
+        trafficLight: <HeartTraficcLightApp />,
+    },
     {
         githubName: "rick-ssa",
         trafficLightName: "Basic Traffic Light",
