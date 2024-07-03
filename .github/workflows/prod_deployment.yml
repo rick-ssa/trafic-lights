@@ -38,6 +38,7 @@ jobs:
         runs-on: ubuntu-latest
         environment:
             name: production
+            url: ${{ steps.auth.outputs.url_output }}
         steps:
             - name: download files
               uses: actions/download-artifact@v4
@@ -49,4 +50,3 @@ jobs:
               name: deploy to production
               run: |
                   vercel --yes --token ${{secrets.vercel_token}} > "$GITHUB_OUTPUT"
-                  echo "$GITHUB_OUTPUT"
