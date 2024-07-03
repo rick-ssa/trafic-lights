@@ -59,4 +59,4 @@ jobs:
             - id: auth
               name: deploy to dev
               run: |
-                  vercel --yes --token ${{secrets.vercel_token}} >> $GITHUB_OUTPUT
+                  vercel --yes --token ${{secrets.vercel_token}}
