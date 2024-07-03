@@ -22,7 +22,7 @@ To install dependencies use `npm install` and to run use `npm start`.
 
 ### Building your own traffic light
 
-You must create your own folder within **src/components/**, in this folder you can build your component using the folder structure and styles of your choice. **Make sure your styles have unique names**.
+You must create your own folder within [**src/components/**](src/components), in this folder you can build your component using the folder structure and styles of your choice. **Make sure your styles have unique names**.
 
 Feel free to check other ready-made components and use them through import, but **don't change** them, if you need to make any changes to a component that isn't yours, copy it to a folder within your own and make the change there.
 
@@ -30,7 +30,7 @@ Other users will also be able to use your components in the future.
 
 ### Showing the component on the main screen
 
-To show the component on the main screen, you must insert it into the `TrafficLightDataObject` object in `src/Data/arrayData.txt`.
+To show the component on the main screen, you must insert it into the `TrafficLightDataObject` object in [**src/Data/arrayData.txt**](src/Data/arrayData.tsx).
 
 **This is the only existing file in the code that you are allowed to change, please do so with Be careful not to delete other developers' code.**
 
