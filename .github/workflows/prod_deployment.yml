@@ -47,4 +47,6 @@ jobs:
               run: npm i -g vercel
             - id: auth
               name: deploy to production
-              run: vercel --yes --token ${{secrets.vercel_token}}
+              run: |
+                  vercel --yes --token ${{secrets.vercel_token}} > "$GITHUB_OUTPUT"
+                  echo "$GITHUB_OUTPUT"
