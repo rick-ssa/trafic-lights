@@ -49,4 +49,4 @@ jobs:
               name: deploy to production
               run: |
                   vercel --yes --token ${{secrets.vercel_token}} >> $GITHUB_OUTPUT
-            - run: echo ${{steps.auth.outputs}}
+            - run: echo ${{steps.auth.outputs.preview}}
