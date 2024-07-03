@@ -40,4 +40,4 @@ jobs:
             name: development
         steps:
             - name: Deploy Github Pages
-              uses: actions/deploy-pages@v4
+              uses: list -R
