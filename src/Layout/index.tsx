@@ -24,7 +24,7 @@ const Layout = () => {
                 <p>
                     Make your own traffic light! See the rules on{" "}
                     <a
-                        href="https://github.com/rick-ssa/trafic-lights?tab=readme-ov-file#traffic-light---challenge"
+                        href="https://github.com/rick-ssa/trafic-lights?tab=readme-ov-file#vertical_traffic_light-traffic-light---challenge"
                         target="_blank"
                         rel="noreferrer"
                     >
