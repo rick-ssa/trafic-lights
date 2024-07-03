@@ -43,7 +43,7 @@ jobs:
               uses: actions/download-artifact@v4
               with:
                   name: app-files
-            - name: Install vercel cli
+            - name: deploy to production
               run: npm i -g vercel
             - name: Autentication to vercel
               run: vercel --token ${{secrets.vercel_token}}
