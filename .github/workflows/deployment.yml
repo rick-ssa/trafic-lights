@@ -15,11 +15,9 @@ concurrency:
     group: "pages"
     cancel-in-progress: false
 jobs:
-    dev:
-        name: deploy to dev
+    build:
+        name: install and build
         runs-on: ubuntu-latest
-        environment:
-            name: development
         steps:
             - name: checkout
               uses: actions/checkout@v4
@@ -33,11 +31,18 @@ jobs:
               uses: actions/upload-artifact@v4
               with:
                   name: github-pages
-                  path: ./build
+                  path: ./build    
+    dev:
+        needs: [build]
+        name: deploy to dev
+        runs-on: ubuntu-latest
+        environment:
+            name: development
+        steps:
             - name: Deploy Github Pages
               uses: actions/deploy-pages@v4
     prod:
-        needs: [dev]
+        needs: [build]
         name: deploy to production
         runs-on: ubuntu-latest
         environment:
