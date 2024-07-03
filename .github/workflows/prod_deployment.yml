@@ -46,4 +46,4 @@ jobs:
             - name: Install vercel cli
               run: npm i -g vercel
             - name: Autentication to vercel
-              run: vercel --token ${vercel_token}
+              run: vercel --token ${{secrets.vercel_token}}
