@@ -1,19 +1,7 @@
 name: deployment
 on:
-    push:
-        branches:
-            - main
-    pull_request:
-        branches:
-            - main
+    workflow_dispatch:
 
-permissions:
-    contents: write
-    pages: write
-    id-token: write
-concurrency:
-    group: "pages"
-    cancel-in-progress: false
 jobs:
     build:
         name: install and build
@@ -32,12 +20,17 @@ jobs:
               with:
                   name: github-pages
                   path: ./build
-    dev:
+
+    prod:
         needs: [build]
-        name: deploy to dev
+        name: deploy to production
         runs-on: ubuntu-latest
         environment:
-            name: development
+            name: production
         steps:
-            - name: Deploy Github Pages
-              uses: actions/deploy-pages@v4
+            - uses: actions/checkout@v4
+            - uses: actions/setup-node@v4
+            - name: Deploy production
+              run: |
+                  npm install
+                  npm run build
