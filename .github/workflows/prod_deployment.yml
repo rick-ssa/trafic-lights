@@ -38,7 +38,7 @@ jobs:
         runs-on: ubuntu-latest
         environment:
             name: production
-            url: ${{steps.auth.outcome.production}}
+            url: ${{steps.auth.outputs.production}}
         steps:
             - name: download files
               uses: actions/download-artifact@v4
