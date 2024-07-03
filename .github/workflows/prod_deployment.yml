@@ -21,7 +21,16 @@ jobs:
                   name: app-files
                   path: |
                       *
-                      !./node-modules
+                      !./node_modules
+                      !./.pnp
+                      !.pnp.js
+                      !coverage
+                      !DS_Store
+                      !.env.*
+                      !.env
+                      !npm-debug.log*
+                      !yarn-debug.log*
+                      !yarn-error.log*
 
     prod:
         needs: [build]
