@@ -18,8 +18,19 @@ jobs:
             - name: Upload files
               uses: actions/upload-artifact@v4
               with:
-                  name: github-pages
-                  path: ./build
+                  name: app-files
+                  path: |
+                      *
+                      !/node-modules
+                      !/.pnp
+                      !.pnp.js
+                      !/coverage
+                      !DS_Store
+                      !.env.*
+                      !.env
+                      !npm-debug.log*
+                      !yarn-debug.log*
+                      !yarn-error.log*
 
     prod:
         needs: [build]
