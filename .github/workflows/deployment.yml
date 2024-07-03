@@ -60,4 +60,4 @@ jobs:
               name: deploy to dev
               run: |
                   URL=$(vercel --yes --token ${{secrets.vercel_token}})
-                  echo "$URL"
+                  echo "preview=$URL" >> $GITHUB_OUTPUT
