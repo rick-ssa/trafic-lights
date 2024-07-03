@@ -21,16 +21,20 @@ jobs:
         environment:
             name: development
         steps:
-            - uses: actions/checkout@v4
-            - uses: actions/setup-node@v4
+            - name: checkout
+              uses: actions/checkout@v4
+            - name: install node
+              uses: actions/setup-node@v4
             - name: Deploy development
               run: |
                   npm install
                   npm run build
-                  git remote set-url origin https://git:${GITHUB_TOKEN}@github.com/${GITHUB_REPOSITORY}.git
-                  npx gh-pages -d build -u "github-actions-bot <support+actions@github.com>"
-              env:
-                  GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+            - name: Upload files
+              uses: actions/upload-artifact@v4
+              with:
+                  path: ./build
+            - name: Deploy Github Pages
+              uses: actions/deploy-pages@v4
     prod:
         needs: [dev]
         name: deploy to production
