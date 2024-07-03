@@ -39,9 +39,9 @@ jobs:
         environment:
             name: production
         steps:
-            - uses: actions/checkout@v4
-            - uses: actions/setup-node@v4
-            - name: Deploy production
-              run: |
-                  npm install
-                  npm run build
+            - name: download files
+              uses: actions/download-artifact@v4
+              with:
+                  name: app-files
+            - name: list files
+              run: ls -R
