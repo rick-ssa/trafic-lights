@@ -43,5 +43,7 @@ jobs:
               uses: actions/download-artifact@v4
               with:
                   name: app-files
-            - name: list files
-              run: ls -R
+            - name: Install vercel cli
+              run: npm i -g vercel
+            - name: Autentication to vercel
+              run: vercel --token ${vercel_token}
