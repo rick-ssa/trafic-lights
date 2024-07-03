@@ -30,9 +30,9 @@ Other users will also be able to use your components in the future.
 
 ### Showing the component on the main screen :tv:
 
-To show the component on the main screen, you must insert it into the `TrafficLightDataObject` object in [**src/Data/arrayData.tsx**](src/Data/arrayData.tsx).
+To show the component on the main screen, you must insert it into the `TrafficLightDataObject` array in [**src/Data/arrayData.tsx**](src/Data/arrayData.tsx).
 
-**This is the only existing file in the code that you are allowed to change, please do so with Be careful not to delete other developers' code.**
+**This is the only existing file in the code that you are allowed to change, please, when doing so, be careful not to delete other developers' code.**
 
 Insert the following object as the first element of the array, so the last change will always be shown by default when starting the application.
 
