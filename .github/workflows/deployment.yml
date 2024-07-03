@@ -40,4 +40,4 @@ jobs:
             name: development
         steps:
             - name: Deploy Github Pages
-              run: list -R
+              run: ls -R
