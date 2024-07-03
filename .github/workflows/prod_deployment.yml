@@ -38,14 +38,13 @@ jobs:
         runs-on: ubuntu-latest
         environment:
             name: production
-            url: ${{steps.auth.outputs}}
         steps:
             - name: download files
               uses: actions/download-artifact@v4
               with:
                   name: app-files
-            - name: deploy to production
+            - name: install vercel
               run: npm i -g vercel
             - id: auth
-              name: Autentication to vercel
-              run: vercel --token ${{secrets.vercel_token}} > "$GITHUB_OUTPUT"
+              name: deploy to production
+              run: vercel --yes --token ${{secrets.vercel_token}}
