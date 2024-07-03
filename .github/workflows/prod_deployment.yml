@@ -21,10 +21,10 @@ jobs:
                   name: app-files
                   path: |
                       *
-                      !/node-modules
-                      !/.pnp
+                      !./node-modules
+                      !./.pnp
                       !.pnp.js
-                      !/coverage
+                      !./coverage
                       !DS_Store
                       !.env.*
                       !.env
