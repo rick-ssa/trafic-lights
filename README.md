@@ -1,6 +1,6 @@
 # :vertical_traffic_light: Traffic Light - Challenge
 
-## [traffic light :horizontal_traffic_light:](https://trafic-lights-snowy.vercel.app/)
+## [traffic light :traffic_light:](https://trafic-lights-snowy.vercel.app/)
 
 This project has an educational purpose for anyone learning React with Typescript.
 
