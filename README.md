@@ -50,3 +50,10 @@ Insert the following object as the first element of the array, so the last chang
 ### Finishing the job :checkered_flag:
 
 All ready! Now just make a pull request and we will analyze and go into production at [traffic light](https://trafic-lights-snowy.vercel.app/).
+
+### Benefits of working on this project :rocket:
+
+1. Practicing is the best way to retain learning.
+2. You will understand a workflow similar to real work.
+3. Contributions to open source code are well regarded by recruiters, it shows that you know how to work as a team.
+4. Because it's fun.
