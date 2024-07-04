@@ -1,3 +1,4 @@
+import getLightColorOff from "../../../utils/getLightColorOff"
 import "./styles.css"
 
 interface SquareLightProps {
@@ -40,17 +41,7 @@ const SquareLight = ({ size, on, color }: SquareLightProps) => {
                 style={{
                     width: size + "px",
                     height: size + "px",
-                    backgroundColor: color,
-                }}
-            />
-
-            {/* covers the Squarelight when on = false */}
-            <span
-                className="squarelight squarelight-off"
-                style={{
-                    width: size + "px",
-                    height: size + "px",
-                    visibility: !on ? "visible" : "hidden",
+                    backgroundColor: on ? color : getLightColorOff(color),
                 }}
             />
         </div>

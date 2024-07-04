@@ -1,3 +1,4 @@
+import getLightColorOff from "../../../utils/getLightColorOff"
 import "./styles.css"
 
 interface BasicLightProps {
@@ -40,17 +41,7 @@ const BasicLight = ({ size, on, color }: BasicLightProps) => {
                 style={{
                     width: size + "px",
                     height: size + "px",
-                    backgroundColor: color,
-                }}
-            />
-
-            {/* covers the Basiclight when on = false */}
-            <span
-                className="basiclight basiclight-off"
-                style={{
-                    width: size + "px",
-                    height: size + "px",
-                    visibility: !on ? "visible" : "hidden",
+                    backgroundColor: on ? color : getLightColorOff(color),
                 }}
             />
         </div>

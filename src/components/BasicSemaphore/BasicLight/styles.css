@@ -9,10 +9,6 @@
     top: 0;
 }
 
-.basiclight-off {
-    background-color: rgba(0, 0, 0, 0.5);
-}
-
 .basiclight-shine {
     filter: blur(8px);
 }

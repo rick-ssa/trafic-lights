@@ -9,10 +9,6 @@
     top: 0;
 }
 
-.squarelight-off {
-    background-color: rgba(0, 0, 0, 0.5);
-}
-
 .squarelight-shine {
     filter: blur(8px);
 }
