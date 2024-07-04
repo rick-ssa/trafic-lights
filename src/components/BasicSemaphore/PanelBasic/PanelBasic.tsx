@@ -1,5 +1,4 @@
 import React from "react"
-import BasicLight from "../BasicLight"
 import "./styles.css"
 
 interface PanelBasicProp {
