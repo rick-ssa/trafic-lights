@@ -2,6 +2,7 @@
     display: flex;
     border-radius: 4px;
     padding: 8px;
+    height: 35px;
 }
 
 .github-contact-avatar {

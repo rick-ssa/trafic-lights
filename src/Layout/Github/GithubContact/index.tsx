@@ -24,7 +24,7 @@ const GithubContact = ({ githubName }: { githubName: string }) => {
     }, [githubName])
 
     if (!contact) {
-        return null
+        return <div className="github-contact-container"></div>
     }
 
     const { linkImage, linkBio, name } = contact

@@ -42,7 +42,11 @@ const Layout = () => {
                         {trafficLightObject.trafficLight}
                     </div>
                     <div className="traffic-light-author">
-                        <Suspense fallback={<div>loading...</div>}>
+                        <Suspense
+                            fallback={
+                                <div style={{ height: "35px" }}>loading...</div>
+                            }
+                        >
                             <GithubContact
                                 githubName={trafficLightObject.githubName}
                             />
