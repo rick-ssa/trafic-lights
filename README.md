@@ -62,4 +62,4 @@ All ready! Now just make a pull request and we will analyze and go into producti
 1. Practicing is the best way to retain learning.
 2. You will understand a workflow similar to real work.
 3. Contributions to open source code are well regarded by recruiters, it shows that you know how to work as a team.
-4. Because it's fun.
+4. Because it's fun. :wink:
