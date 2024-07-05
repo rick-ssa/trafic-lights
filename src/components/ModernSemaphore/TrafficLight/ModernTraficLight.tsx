@@ -8,11 +8,22 @@ interface ModernTrafficLightProp {
 }
 
 const ModernTrafficLight = ({ size }: ModernTrafficLightProp) => {
+    //* constants colors
     const color_green = "#0f0"
     const color_red = "#f00"
     const color_yellow = "#ff0"
+
+    //* timers
+    const timer_red = 6000
+    const timer_green = 20000
+
+    //* array to save the on state of each big lights
     const [colorsOn, setColorsOn] = useState<boolean[]>([false, false, true])
+
+    //* state to light of lightcounter
     const [color, setColor] = useState<string>(color_green)
+
+    //* components styles
     const sytles: Styles = {
         container: {
             backgroundColor: "#333",
@@ -26,9 +37,13 @@ const ModernTrafficLight = ({ size }: ModernTrafficLightProp) => {
         },
     }
 
+    //* calc to define the lightCounter light size
     const miniLightSize = Math.floor(size / 3)
+
+    //* calc to define the lightCounter light length
     const miniLightLength = Math.floor((size * 3.33) / miniLightSize)
 
+    //* function to onTimeUp to change the big light to red or green
     const changeColor = () => {
         if (color === color_green) {
             setColor(color_red)
@@ -68,14 +83,15 @@ const ModernTrafficLight = ({ size }: ModernTrafficLightProp) => {
                     onTimeUp={changeColor}
                     triggersOnLight={[
                         {
+                            //* function called at three to last to turn big light yellow
                             callback: () => {
                                 color === color_green &&
                                     setColorsOn([false, true, false])
                             },
-                            light: "threeBeforeLast",
+                            light: "twoBeforeLast",
                         },
                     ]}
-                    timer={color === color_green ? 10000 : 6000}
+                    timer={color === color_green ? timer_green : timer_red}
                 />
             </div>
         </div>

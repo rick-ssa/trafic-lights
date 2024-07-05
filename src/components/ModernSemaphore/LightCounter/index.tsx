@@ -35,6 +35,7 @@ const LightCounter = ({
     const timerId = useRef<NodeJS.Timeout>()
     const lightTimer = timer / lightsLength
 
+    //* restart the component whenever color changes
     useEffect(() => {
         if (color) {
             let lights = []
@@ -48,6 +49,7 @@ const LightCounter = ({
         return () => clearTimeout(timerId.current)
     }, [color])
 
+    //* component styles
     const styles: Styles = {
         container: {
             display: "flex",
@@ -59,6 +61,7 @@ const LightCounter = ({
         },
     }
 
+    //* it runs the timer to turn the next light off until they are all off
     const getLightOff = (lightsOnArg: boolean[] | undefined) => {
         const lightsOnLength = lightsOnArg?.reduce(
             (prev, light) => (light ? prev + 1 : prev),
@@ -72,6 +75,7 @@ const LightCounter = ({
                 lightsOnArg.some((light, index) => {
                     if (light) {
                         newLightsOn[index] = false
+                        //* trigger function when specified light turn off if it was set
                         triggerOnLight(index + 1)
                         return true
                     }
@@ -83,10 +87,12 @@ const LightCounter = ({
         }
 
         if (lightsOnArg && lightsOnArg.length > 0 && lightsOnLength === 0) {
+            //* trigger the onTimeUp function when all lights are off
             onTimeUp()
         }
     }
 
+    //* trigger the function when a specified light turn off if it was set
     const triggerOnLight = (light: number) => {
         if (triggersOnLight && triggerOnLight.length > 0) {
             const callback = triggersOnLight.find(
@@ -98,6 +104,7 @@ const LightCounter = ({
         }
     }
 
+    //* change the constants string in the light number
     const getNumberFromPosition = (light: LightNumber) => {
         switch (light) {
             case "oneBeforeLast":
