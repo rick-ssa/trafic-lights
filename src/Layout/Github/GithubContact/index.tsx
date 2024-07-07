@@ -37,7 +37,7 @@ const GithubContact = ({ githubName }: { githubName: string }) => {
             <div className="github-contact-personal">
                 <span>{name}</span>
                 <a href={linkBio} target="_blank" rel="noreferrer">
-                    <FaGithub className="github-ico" /> {githubName}
+                    <FaGithub className="github-ico" /> {contact.githubName}
                 </a>
             </div>
         </div>

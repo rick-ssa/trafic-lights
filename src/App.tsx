@@ -1,10 +1,9 @@
 import "./App.css"
-import Layout from "./Layout"
-import HeartShape from "./components/HeartSemaphore/HeartShape"
+import Page from "./Page"
 function App() {
     return (
         <div className="App">
-            <Layout />
+            <Page />
         </div>
     )
 }
