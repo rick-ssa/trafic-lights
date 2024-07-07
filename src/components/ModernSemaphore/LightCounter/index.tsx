@@ -1,13 +1,13 @@
 import React, { useEffect, useRef, useState } from "react"
 import BasicLight from "../../BasicSemaphore/BasicLight"
 
-type LightNumber =
+export type LightNumber =
     | number
     | "oneBeforeLast"
     | "twoBeforeLast"
     | "threeBeforeLast"
 
-interface TrigerOnLight {
+export interface TriggerOnLight {
     light: LightNumber
     callback: () => void
 }
@@ -16,7 +16,7 @@ interface LightCounterProps {
     lightSize: number
     lightsLength: number
     onTimeUp: () => void
-    triggersOnLight?: TrigerOnLight[]
+    triggersOnLight?: TriggerOnLight[]
     timer: number
     color: string
 }
