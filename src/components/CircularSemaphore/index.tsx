@@ -1,9 +1,33 @@
-import { CircularLightCounter } from "./CircularLightCounter"
-import CircularPanel from "./CircularPanel"
+import CircularSemaphore from "./CircularComponents"
 
-const CircularSemaphore = {
-    Panel: CircularPanel,
-    CounterLight: CircularLightCounter,
+interface CircularTrafficLightProps {
+    panelSize: number
+    counterColor: string
+    lightsOn: boolean[]
+    trafficLightColor: string
 }
 
-export default CircularSemaphore
+export const CircularTrafficLight = ({
+    panelSize,
+    counterColor,
+    lightsOn,
+    trafficLightColor,
+}: CircularTrafficLightProps) => {
+    const counterLightSize = Math.round(panelSize * 0.93)
+    const basicLightSize = Math.round(panelSize * 0.46)
+
+    return (
+        <CircularSemaphore.Panel size={panelSize}>
+            <CircularSemaphore.CounterLight
+                size={counterLightSize}
+                color={counterColor}
+                lightsOn={lightsOn}
+            />
+            <CircularSemaphore.Light
+                size={basicLightSize}
+                color={trafficLightColor}
+                on={true}
+            />
+        </CircularSemaphore.Panel>
+    )
+}

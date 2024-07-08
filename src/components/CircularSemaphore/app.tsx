@@ -1,55 +1,88 @@
-import { useState } from "react"
-import CircularSemaphore from "./index"
-import BasicLight from "../BasicSemaphore/BasicLight"
+import { useEffect, useRef, useState } from "react"
+import { CircularTrafficLight } from "."
 
 const CircularSemaphoreApp = () => {
-    const panelSize = 300
-    const counterLightSize = Math.round(panelSize * 0.93)
-    const basicLightSize = Math.round(panelSize * 0.46)
+    //* constants ==================================================================
+
+    const counterLightLenght = 100
     const colorGreen = "#0f0"
     const colorRed = "#f00"
     const colorYellow = "#ff0"
-    const [counterColor, setCounterColor] = useState<string>(colorGreen)
-    const [trafficLightColor, setTrafficLightColor] =
-        useState<string>(colorGreen)
-
     const timerRed = 6000
     const timerGreen = 10000
-    const timer = counterColor === colorGreen ? timerGreen : timerRed
+    const timerYellow = 2000
 
-    const handleTimeUp = () => {
-        if (counterColor === colorGreen) {
-            setCounterColor(colorRed)
-            setTrafficLightColor(colorRed)
+    //* hooks ======================================================================
+
+    const [counterColor, setCounterColor] = useState<string>(colorGreen)
+    const [timer, setTimer] = useState<number>(timerGreen)
+    const [trafficLightColor, setTrafficLightColor] =
+        useState<string>(colorGreen)
+    const [lightsOn, setLightsOn] = useState<boolean[]>(
+        new Array(counterLightLenght).fill(true)
+    )
+    const timerId = useRef<NodeJS.Timeout>()
+
+    useEffect(() => {
+        runTimer(lightsOn)
+        return () => clearTimeout(timerId.current)
+    }, [trafficLightColor])
+
+    //* timer to each counter lights (depends on timer state and const coutnerLightLength)
+    const timerCounterLight = timer / counterLightLenght
+
+    //* functions =====================================================================
+
+    const reset = (color: string, timer: number) => {
+        setLightsOn([...lightsOn].map((_) => true))
+        setCounterColor(color)
+        setTrafficLightColor(color)
+        setTimer(timer)
+    }
+
+    const getOffNextLight = (counterLights: boolean[]) => {
+        const indexOff = counterLights.findIndex((on) => on === true)
+        const newCounterLights = [...counterLights]
+        newCounterLights[indexOff] = false
+        return newCounterLights
+    }
+
+    const runTimer = (lightsOn: boolean[]) => {
+        if (lightsOn.some((on) => on)) {
+            const lights = getOffNextLight(lightsOn)
+            clearTimeout(timerId.current)
+            timerId.current = setTimeout(() => {
+                setLightsOn(lights)
+                runTimer(lights)
+            }, timerCounterLight)
         } else {
-            setCounterColor(colorGreen)
-            setTrafficLightColor(colorGreen)
+            onTimeUp()
         }
     }
 
+    const onTimeUp = () => {
+        switch (trafficLightColor) {
+            case colorGreen:
+                reset(colorYellow, timerYellow)
+                break
+            case colorYellow:
+                reset(colorRed, timerRed)
+                break
+            default:
+                reset(colorGreen, timerGreen)
+                break
+        }
+    }
+
+    //* component =====================================================================
+
     return (
-        <CircularSemaphore.Panel size={panelSize}>
-            <CircularSemaphore.CounterLight
-                size={counterLightSize}
-                onTimeUp={handleTimeUp}
-                color={counterColor}
-                timer={timer}
-                triggersOnLight={[
-                    {
-                        callback: () => {
-                            counterColor === colorGreen &&
-                                setTrafficLightColor(colorYellow)
-                        },
-                        light: 9,
-                    },
-                ]}
-            />
-            <BasicLight
-                size={basicLightSize}
-                color={trafficLightColor}
-                on={true}
-            />
-        </CircularSemaphore.Panel>
+        <CircularTrafficLight
+            panelSize={300}
+            counterColor={counterColor}
+            lightsOn={lightsOn}
+            trafficLightColor={trafficLightColor}
+        />
     )
 }
 
