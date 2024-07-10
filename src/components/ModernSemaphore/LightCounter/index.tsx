@@ -1,5 +1,6 @@
-import React, { useEffect, useRef, useState } from "react"
+import { useEffect, useRef, useState } from "react"
 import BasicLight from "../../BasicSemaphore/BasicLight"
+import { Styles } from "../../../interfaces/TStyles"
 
 export type LightNumber =
     | number
@@ -20,8 +21,6 @@ interface LightCounterProps {
     timer: number
     color: string
 }
-
-export type Styles = { [key: string]: React.CSSProperties }
 
 const LightCounter = ({
     lightSize,

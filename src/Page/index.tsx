@@ -6,16 +6,17 @@ import TrafficLightDataObject, {
     ITrafficLightDataObject,
 } from "../Data/arrayData"
 import { useState } from "react"
+import { GithubList } from "../Layout/Github/GithubList"
 
 const Page = () => {
     const [TrafficLightObject, setTrafficLightObject] =
         useState<ITrafficLightDataObject>(TrafficLightDataObject[0])
 
     return (
-        <Layout rightContentWeight={0}>
+        <Layout leftContentWeight={2}>
             <Top />
             <TrafficLight onChange={setTrafficLightObject} />
-            <>{/* reserved to github user list */}</>
+            <GithubList />
             <GithubContact githubName={TrafficLightObject.githubName} />
         </Layout>
     )

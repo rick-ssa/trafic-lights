@@ -1,5 +1,5 @@
 import { ReactNode } from "react"
-import { Styles } from "../components/ModernSemaphore/LightCounter"
+import { Styles } from "../interfaces/TStyles"
 
 interface LayoutProps {
     children: ReactNode[]

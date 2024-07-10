@@ -1,5 +1,5 @@
 import BasicLight from "../components/BasicSemaphore/BasicLight"
-import { Styles } from "../components/ModernSemaphore/LightCounter"
+import { Styles } from "../interfaces/TStyles"
 
 export const Top = () => {
     const styles: Styles = {

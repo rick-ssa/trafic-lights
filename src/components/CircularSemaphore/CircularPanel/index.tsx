@@ -1,5 +1,5 @@
 import { ReactNode } from "react"
-import { Styles } from "../../ModernSemaphore/LightCounter"
+import { Styles } from "../../../interfaces/TStyles"
 
 interface CircularPanelProps {
     children: ReactNode

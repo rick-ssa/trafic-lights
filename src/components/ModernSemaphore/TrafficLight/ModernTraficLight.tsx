@@ -1,7 +1,8 @@
 import { useState } from "react"
 import BasicLight from "../../BasicSemaphore/BasicLight"
 import PanelBasic from "../../BasicSemaphore/PanelBasic/PanelBasic"
-import LightCounter, { Styles } from "../LightCounter"
+import LightCounter from "../LightCounter"
+import { Styles } from "../../../interfaces/TStyles"
 
 interface ModernTrafficLightProp {
     size: number

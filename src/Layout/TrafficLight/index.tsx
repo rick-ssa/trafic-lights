@@ -1,7 +1,7 @@
 import { useState } from "react"
 import trafficDataList, { ITrafficLightDataObject } from "../../Data/arrayData"
 import TrafficLightList from "../TrafficLightList"
-import { Styles } from "../../components/ModernSemaphore/LightCounter"
+import { Styles } from "../../interfaces/TStyles"
 
 interface TrafficLightProps {
     onChange: (trafficLightDataObject: ITrafficLightDataObject) => void

@@ -1,6 +1,6 @@
 import { useEffect, useRef, useState } from "react"
 import BasicLight from "../../BasicSemaphore/BasicLight"
-import { Styles } from "../../ModernSemaphore/LightCounter"
+import { Styles } from "../../../interfaces/TStyles"
 
 interface CircularLightCounterProps {
     size: number
