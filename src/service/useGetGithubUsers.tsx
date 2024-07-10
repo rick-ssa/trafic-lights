@@ -1,28 +1,34 @@
-import { GithubContactProp } from "../Layout/Github/GithubContact"
+import { useEffect, useState } from "react"
+import { IGithubUser } from "../interfaces/IGithubUser"
 
-const useGetGithubUsers = () => {
-    const fetchUser = async (user: string) => {
-        const response = await fetch(`https://api.github.com/users/${user}`)
-        if (response.ok) {
-            const result = await response.json()
-            return {
-                githubName: result.login as string,
-                name: result.name as string,
-                linkImage: result.avatar_url as string,
-                linkBio: result.html_url as string,
-            }
-        }
-    }
+const useGetGithubUsers = (githubLogins: string[]) => {
+    const [githubUsers, setGithubUsers] = useState<IGithubUser[] | undefined>(
+        undefined
+    )
 
-    return async (
-        users: string[]
-    ): Promise<(GithubContactProp | undefined)[]> => {
-        if (users.length === 0) {
-            return []
+    useEffect(() => {
+        if (githubLogins) {
+            Promise.all(
+                githubLogins.map((githubLogin) =>
+                    fetch(`https://api.github.com/users/${githubLogin}`)
+                )
+            ).then((response) => {
+                Promise.all(response.map((item) => item.json())).then(
+                    (result) => {
+                        const users: IGithubUser[] = result.map((res) => ({
+                            githubName: res.login as string,
+                            name: res.name as string,
+                            linkImage: res.avatar_url as string,
+                            linkBio: res.html_url as string,
+                        }))
+                        setGithubUsers(users)
+                    }
+                )
+            })
         }
-        const result = await Promise.all(users.map((user) => fetchUser(user)))
-        return result.filter((user) => Boolean(user))
-    }
+    }, [...githubLogins])
+
+    return githubUsers
 }
 
 export default useGetGithubUsers
