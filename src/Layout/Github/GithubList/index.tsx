@@ -5,9 +5,16 @@ import { GithubItemList } from "../../List/ItemList/GithubItemList"
 import { List } from "../../List/List"
 
 export const GithubList = () => {
-    const githubUsers = useGetGithubUsers(
-        TrafficLightDataObject.map((data) => data.githubName)
-    )
+    const userNames = TrafficLightDataObject.map((data) => data.githubName)
+        .sort()
+        .reduce((prev: string[], userName, index, arr) => {
+            if (index === 0 || arr[index - 1] !== userName) {
+                prev.push(userName)
+                return prev
+            }
+            return prev
+        }, [])
+    const githubUsers = useGetGithubUsers(userNames)
 
     if (!githubUsers) {
         return null
