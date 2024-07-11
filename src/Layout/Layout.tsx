@@ -1,13 +1,9 @@
 import { ReactNode } from "react"
 import { Styles } from "../interfaces/TStyles"
+import { ILayoutWeight } from "../interfaces/ILayoutWeight"
 
-interface LayoutProps {
+interface LayoutProps extends ILayoutWeight {
     children: ReactNode[]
-    headerWeight?: number
-    contentWeight?: number
-    leftContentWeight?: number
-    rightContentWeight?: number
-    footerWeight?: number
 }
 
 export const Layout = ({
