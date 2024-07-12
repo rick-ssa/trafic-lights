@@ -18,42 +18,43 @@ export const Layout = ({
 
     const styles: Styles = {
         container: {
-            display: "flex",
-            flexDirection: "column",
+            display: "grid",
+            height: "calc(100vh - 8px)",
+            margin: "0 auto",
             flex: 1,
-            justifyContent: "stretch",
-            alignItems: "stretch",
-        },
-        content: {
-            display: "flex",
-            flexDirection: "row",
-            flex: contentWeight,
+            padding: "4px",
+            maxWidth: "1600px",
+            gap: "4px",
+            gridTemplateColumns: "repeat(6,1fr)",
+            gridTemplateRows: "1fr 7fr 1fr",
+            gridTemplateAreas:
+                '"header header header header header header" "content content content content aside aside" "footer footer footer footer footer footer"',
         },
         leftContent: {
             display: "flex",
-            flex: leftContentWeight,
+            gridArea: "content",
         },
         rightContent: {
             display: "flex",
-            flex: rightContentWeight,
+            gridArea: "aside",
         },
         header: {
             display: "flex",
-            flex: headerWeight,
+            gridArea: "header",
         },
         footer: {
             display: "flex",
-            flex: footerWeight,
+            gridArea: "footer",
         },
     }
 
     return (
         <main style={styles.container}>
             <header style={styles.header}>{header}</header>
-            <div style={styles.content}>
-                <div style={styles.leftContent}>{leftContent}</div>
-                <div style={styles.rightContent}>{rightContent}</div>
-            </div>
+
+            <div style={styles.leftContent}>{leftContent}</div>
+            <div style={styles.rightContent}>{rightContent}</div>
+
             <footer style={styles.footer}>{footer}</footer>
         </main>
     )

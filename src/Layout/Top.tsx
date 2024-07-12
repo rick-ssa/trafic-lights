@@ -7,7 +7,6 @@ export const Top = () => {
             textAlign: "center",
             flex: 1,
             backgroundColor: "rgba(0, 0, 0, 0.1)",
-            margin: "4px",
             borderRadius: "5px",
         },
         title: {

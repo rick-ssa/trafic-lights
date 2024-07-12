@@ -35,7 +35,6 @@ export const GithubList = () => {
             justifyContent: "space-around",
             padding: "16px",
             backgroundColor: "rgba(0, 0, 0, 0.1)",
-            margin: "4px",
             borderRadius: "5px",
             overflow: "auto",
         },
