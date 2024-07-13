@@ -13,7 +13,7 @@ const Page = () => {
         useState<ITrafficLightDataObject>(TrafficLightDataObject[0])
 
     return (
-        <Layout leftContentWeight={2}>
+        <Layout>
             <Top />
             <TrafficLight onChange={setTrafficLightObject} />
             <GithubList />

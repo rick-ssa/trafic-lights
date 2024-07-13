@@ -1,19 +1,7 @@
 import { ReactNode } from "react"
 import { Styles } from "../interfaces/TStyles"
-import { ILayoutWeight } from "../interfaces/ILayoutWeight"
 
-interface LayoutProps extends ILayoutWeight {
-    children: ReactNode[]
-}
-
-export const Layout = ({
-    children,
-    headerWeight = 1,
-    contentWeight = 7,
-    leftContentWeight = 1,
-    rightContentWeight = 1,
-    footerWeight = 1,
-}: LayoutProps) => {
+export const Layout = ({ children }: { children: ReactNode[] }) => {
     const [header, leftContent, rightContent, footer] = children
 
     const styles: Styles = {
@@ -28,7 +16,9 @@ export const Layout = ({
             gridTemplateColumns: "repeat(6,1fr)",
             gridTemplateRows: "1fr 7fr 1fr",
             gridTemplateAreas:
-                '"header header header header header header" "content content content content aside aside" "footer footer footer footer footer footer"',
+                '"header  header  header  header  header header"' +
+                '"content content content content aside  aside"' +
+                '"footer  footer  footer  footer  footer footer"',
         },
         leftContent: {
             display: "flex",
