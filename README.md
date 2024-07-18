@@ -1,16 +1,14 @@
 # :vertical_traffic_light: Traffic Light - Challenge
 
-## [traffic light :traffic_light:](https://trafic-lights-snowy.vercel.app/)
+## Link to app: [traffic light :traffic_light:](https://trafic-lights-snowy.vercel.app/)
 
 This project has an educational purpose for anyone learning React with Typescript.
 
 Create a traffic light to understand the componetization and reuse of these components.
 
-
 ## Rules :page_with_curl:
 
 Follow these rules if you want to try creating a different traffic light.
-
 
 ### Fork the repository :arrow_down:
 
@@ -20,11 +18,9 @@ Once the **fork** has been done you now have a remote copy of the repository. :p
 
 To start working locally on your repository, you have to clone your remote repository. You can find out more at [**Cloning a repository**](https://docs.github.com/en/repositories/creating-and-managing-repositories/cloning-a-repository).
 
-
 ### Installing and running locally :runner:
 
 To install dependencies use `npm install` and to run use `npm start`.
-
 
 ### Building your own traffic light :hammer:
 
@@ -33,7 +29,6 @@ You must create your own folder within [**src/components/**](src/components), in
 Feel free to check other ready-made components and use them through import, but **don't change** them, if you need to make any changes to a component that isn't yours, copy it to a folder within your own and make the change there.
 
 Other users will also be able to use your components in the future.
-
 
 ### Showing the component on the main screen :tv:
 
@@ -55,7 +50,6 @@ Insert the following object as the first element of the array, so the last chang
 ### Finishing the job :checkered_flag:
 
 All ready! Now just make a pull request and we will analyze and go into production at [traffic light](https://trafic-lights-snowy.vercel.app/).
-
 
 ## Benefits of working on this project :rocket:
 
